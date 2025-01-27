@@ -1,0 +1,35 @@
+{
+  "name": "gel-quickstart-nextjs",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "edgedb": "^1.4.1",
+    "next": "^15.1.6",
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "@edgedb/generate": "0.x",
+    "@eslint/js": "^9.18.0",
+    "@tailwindcss/upgrade": "^4.0.0",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@typescript-eslint/eslint-plugin": "6.x",
+    "@typescript-eslint/parser": "6.x",
+    "autoprefixer": "^10.0.1",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "9.x",
+    "postcss": "^8",
+    "prettier": "3.x",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.21.0"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  }
+}
