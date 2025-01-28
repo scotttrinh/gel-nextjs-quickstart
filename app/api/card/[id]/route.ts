@@ -23,11 +23,17 @@ export async function PUT(
   { params }: { params: Promise<{ id: string }> }
 ): Promise<NextResponse<UpdateCardResponse>> {
   const { id: cardId } = await params;
+  const access_token = req.headers.get("Authorization")?.split(" ")[1];
+  if (!access_token) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
   const body = (await req.json()) as UpdateCardBody;
-  const card = await updateCard(
-    client,
-    { cardId, front: body.front, back: body.back }
-  );
+  const card = await updateCard(client.withGlobals({ access_token }), {
+    cardId,
+    front: body.front,
+    back: body.back,
+  });
 
   if (!card) {
     return NextResponse.json({ error: "Card not found" }, { status: 404 });

@@ -24,9 +24,14 @@ export async function GET(
   req: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ): Promise<NextResponse<GetDeckResponse>> {
+  const access_token = req.headers.get("Authorization")?.split(" ")[1];
+  if (!access_token) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
   const { id: deckId } = await params;
   const deck = await getDeck(
-    client,
+    client.withGlobals({ access_token }),
     { deckId }
   );
 

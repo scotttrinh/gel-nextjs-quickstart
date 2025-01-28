@@ -6,6 +6,7 @@ with
     insert Deck {
       name := name,
       description := description,
+      creator := global current_user,
     }
   ),
   CARDS := (
