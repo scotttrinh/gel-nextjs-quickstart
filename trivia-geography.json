@@ -1,0 +1,26 @@
+{
+  "name": "Geography",
+  "description": "Questions about countries, cities, and other geographical features.",
+  "cards": [
+    {
+      "front": "What is the tallest mountain on Earth?",
+      "back": "Mount Everest"
+    },
+    {
+      "front": "What is the deepest trench on Earth?",
+      "back": "The Mariana Trench"
+    },
+    {
+      "front": "What is the widest river on Earth?",
+      "back": "The Amazon River"
+    },
+    {
+      "front": "What is the largest ocean on Earth?",
+      "back": "The Pacific Ocean"
+    },
+    {
+      "front": "What is the highest freshwater lake on Earth?",
+      "back": "Lake Titicaca"
+    }
+  ]
+}

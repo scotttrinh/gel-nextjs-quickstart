@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { client } from "@/lib/gel";
 
+import { updateCard } from "./update-card.query";
+
 interface UpdateCardBody {
   front: string;
   back: string;
@@ -22,19 +24,8 @@ export async function PUT(
 ): Promise<NextResponse<UpdateCardResponse>> {
   const { id: cardId } = await params;
   const body = (await req.json()) as UpdateCardBody;
-  const card = await client.querySingle<UpdateCardSuccessResponse>(
-    `
-      with
-        cardId := <uuid>$cardId,
-        front := <str>$front,
-        back := <str>$back,
-      update Card
-      filter .id = cardId
-      set {
-        front := front,
-        back := back,
-      };
-    `,
+  const card = await updateCard(
+    client,
     { cardId, front: body.front, back: body.back }
   );
 
