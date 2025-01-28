@@ -30,13 +30,10 @@ with
   CARDS := (
     for card in cards
     insert Card {
+      order := card.0,
       front := card.1.front,
       back := card.1.back,
-      deck := (
-        select DECK {
-          @order := <int32>card.0,
-        }
-      ),
+      deck := DECK,
     }
   ),
 select DECK;`, args);
